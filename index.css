@@ -1,0 +1,115 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- center --- */
+main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2.5rem;
+}
+
+/* --- logo placeholder --- */
+.logo {
+  width: clamp(120px, 20vw, 180px);
+  height: clamp(120px, 20vw, 180px);
+}
+.logo .spoke { stroke: var(--fg); stroke-width: 3; stroke-linecap: round; fill: none; }
+.logo .spoke--corrupt { stroke: var(--purple); stroke-width: 2.8; stroke-linecap: round; fill: none; }
+.logo .hub { fill: none; stroke: var(--fg); stroke-width: 2.5; }
+.logo .hub-inner { fill: var(--bg); stroke: var(--fg-muted); stroke-width: 1.5; }
+.logo .rim { fill: none; stroke: rgba(228, 226, 236, 0.12); stroke-width: 2; }
+.logo .sucker { fill: var(--purple); opacity: 0.7; }
+
+/* --- title --- */
+.title { text-align: center; }
+.title h1 {
+  font-size: clamp(2.8rem, 8vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.title h1 .de { color: var(--teal); }
+.title p {
+  margin-top: 0.75rem;
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  font-weight: 400;
+  color: var(--fg-muted);
+  letter-spacing: 0.02em;
+}
+.title .sub {
+  margin-top: 0.3rem;
+  font-size: clamp(0.8rem, 1.6vw, 0.9rem);
+  color: var(--fg-dim);
+}
+.title .desc {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--fg-muted);
+  max-width: 480px;
+}
+
+/* --- quote (easter egg) --- */
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 2rem 2.5rem;
+}
+footer blockquote {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--fg-dim);
+}
+footer cite {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.7rem;
+  color: rgba(122, 113, 146, 0.5);
+  font-style: normal;
+}
+footer .copyright { margin-top: 1.5rem; }
+
+/* --- cta --- */
+.cta {
+  display: inline-block;
+  margin: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--fg-muted);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+.cta:hover {
+  color: var(--fg);
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.03);
+}
+.cta--secondary {
+  border-color: rgba(255, 255, 255, 0.04);
+  font-size: 0.82rem;
+  margin-left: 0.5rem;
+}
+
+/* --- page animations --- */
+.logo       { animation: fadeUp 0.8s ease both; }
+.title h1   { animation: fadeUp 0.8s ease 0.1s both; }
+.title p    { animation: fadeUp 0.8s ease 0.2s both; }
+.title .sub { animation: fadeUp 0.8s ease 0.28s both; }
+.title .desc { animation: fadeUp 0.8s ease 0.34s both; }
+.cta        { animation: fadeUp 0.8s ease 0.42s both; }
+header a    { animation: fadeUp 0.6s ease 0.4s both; }
