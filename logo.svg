@@ -1,0 +1,32 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" rx="40" fill="#0c0a14"/>
+  <!-- dekube logo: corrupted K8s wheel with tentacles -->
+  <circle cx="100" cy="100" r="82" fill="none" stroke="rgba(228,226,236,0.12)" stroke-width="2"/>
+  <!-- clean spokes -->
+  <line x1="100" y1="100" x2="30" y2="130" stroke="#e4e2ec" stroke-width="3" stroke-linecap="round"/>
+  <line x1="100" y1="100" x2="35" y2="70" stroke="#e4e2ec" stroke-width="3" stroke-linecap="round"/>
+  <line x1="100" y1="100" x2="68" y2="25" stroke="#e4e2ec" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="30" cy="130" r="5" fill="none" stroke="#e4e2ec" stroke-width="2"/>
+  <circle cx="35" cy="70" r="5" fill="none" stroke="#e4e2ec" stroke-width="2"/>
+  <circle cx="68" cy="25" r="5" fill="none" stroke="#e4e2ec" stroke-width="2"/>
+  <!-- corrupted spoke (top) -->
+  <line x1="100" y1="100" x2="100" y2="40" stroke="#e4e2ec" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 100,40 C 100,30 105,22 108,18" fill="none" stroke="#a78bfa" stroke-width="2.8" stroke-linecap="round"/>
+  <circle cx="100" cy="40" r="4.5" fill="none" stroke="#e4e2ec" stroke-width="1.8"/>
+  <!-- tentacle 1 (right-upper) -->
+  <path d="M 100,100 C 120,95 145,85 160,75 C 172,67 178,55 170,42 C 164,33 158,38 162,48" fill="none" stroke="#a78bfa" stroke-width="2.8" stroke-linecap="round"/>
+  <circle cx="155" cy="78" r="2.5" fill="#a78bfa" opacity="0.7"/>
+  <circle cx="168" cy="56" r="2" fill="#a78bfa" opacity="0.7"/>
+  <!-- tentacle 2 (right-lower) -->
+  <path d="M 100,100 C 125,110 155,115 170,125 C 182,133 185,148 175,158 C 168,165 160,158 166,150" fill="none" stroke="#a78bfa" stroke-width="2.8" stroke-linecap="round"/>
+  <circle cx="160" cy="120" r="2.5" fill="#a78bfa" opacity="0.7"/>
+  <circle cx="178" cy="142" r="2" fill="#a78bfa" opacity="0.7"/>
+  <circle cx="172" cy="155" r="1.8" fill="#a78bfa" opacity="0.7"/>
+  <!-- tentacle 3 (bottom) -->
+  <path d="M 100,100 C 115,120 128,150 130,170 C 131,182 122,190 112,185 C 105,181 108,174 115,177" fill="none" stroke="#a78bfa" stroke-width="2.8" stroke-linecap="round"/>
+  <circle cx="127" cy="155" r="2.2" fill="#a78bfa" opacity="0.7"/>
+  <circle cx="130" cy="175" r="1.8" fill="#a78bfa" opacity="0.7"/>
+  <!-- hub -->
+  <circle cx="100" cy="100" r="18" fill="none" stroke="#e4e2ec" stroke-width="2.5"/>
+  <circle cx="100" cy="100" r="8" fill="#0c0a14" stroke="#9590a8" stroke-width="1.5"/>
+</svg>
