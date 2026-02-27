@@ -115,6 +115,16 @@ footer .copyright {
   font-size: 0.7rem;
   color: var(--fg-dim);
 }
+footer .copyright a {
+  color: var(--fg-dim);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(122, 113, 146, 0.3);
+  transition: color 0.15s, border-color 0.15s;
+}
+footer .copyright a:hover {
+  color: var(--fg-muted);
+  border-bottom-color: var(--fg-muted);
+}
 
 /* --- fade-in --- */
 @keyframes fadeUp {
