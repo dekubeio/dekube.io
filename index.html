@@ -34,6 +34,34 @@
   "author": { "@type": "Organization", "name": "dekube", "url": "https://github.com/dekubeio" }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I run a Helm chart without a Kubernetes cluster?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. dekube renders your Helm chart or helmfile with helm/helmfile template and converts the resulting Kubernetes manifests into a Docker Compose file. No cluster, no kubelet, no control plane — just docker compose up." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I have to maintain a separate Compose file by hand?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. The Helm chart stays the single source of truth. compose.yml is a generated artifact you regenerate whenever the chart changes, so there is no second stack to keep in sync." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is dekube good for self-hosted and homelab setups?",
+      "acceptedAnswer": { "@type": "Answer", "text": "That is the primary use case. If an app ships only as a Helm chart but your NAS, Synology, Unraid, or VPS only speaks Docker Compose, dekube converts the chart so you can deploy it the same way you deploy everything else." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which dekube distribution should I use?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Use kubernetes2simple (k2s) if you just want it to work — one curl command. Use helmfile2compose if you want to choose extensions, exclude services, or run the conversion in CI." }
+    }
+  ]
+}
+</script>
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="stylesheet" href="shared.css">
 <link rel="stylesheet" href="index.css">
@@ -72,6 +100,49 @@
     <a class="cta cta--secondary" href="https://helmfile2compose.dekube.io">I want control &rarr;</a>
     <a class="cta cta--secondary" href="https://docs.dekube.io" target="_blank">Engine docs &rarr;</a>
   </div>
+
+  <section class="substance">
+    <h2 id="what">Convert Kubernetes and Helm to Docker Compose</h2>
+    <p>
+      dekube turns Kubernetes manifests, Helm charts, and helmfiles into a working
+      <code>compose.yml</code> plus reverse-proxy config. It renders your charts with
+      <code>helm</code>/<code>helmfile template</code>, then translates the output —
+      Deployments, Services, PersistentVolumeClaims, Ingress, ConfigMaps, Secrets —
+      into Compose services, volumes, and a Caddyfile. Same charts, same values,
+      no second stack to maintain.
+    </p>
+
+    <h2 id="who">Who it's for</h2>
+    <p>
+      People who ship or run software that only exists as a Helm chart, but whose
+      target only speaks Compose: self-hosters putting an app on a NAS, Synology,
+      Unraid, or VPS; developers who need a stack running locally without a cluster;
+      and anyone who can't be root long enough to run k3s.
+    </p>
+
+    <h2 id="how">How it works</h2>
+    <ol>
+      <li><strong>Render</strong> — dekube runs <code>helm</code> or <code>helmfile template</code> on your source. The chart stays the source of truth.</li>
+      <li><strong>Convert</strong> — the rendered Kubernetes manifests become Compose services, with volumes, healthchecks, and service-DNS aliases wired up.</li>
+      <li><strong>Run</strong> — <code>docker compose up</code>. Re-run dekube after any chart change; your <code>dekube.yaml</code> overrides are preserved.</li>
+    </ol>
+    <p>
+      For a full example, see
+      <a href="https://k2s.dekube.io/guides/helm-chart-to-docker-compose/">how to run a Helm chart without a cluster</a>,
+      read the <a href="https://docs.dekube.io/">engine documentation</a>, or start with
+      <a href="https://helmfile2compose.dekube.io/docs/getting-started/">helmfile2compose</a> for control and CI.
+    </p>
+
+    <h2 id="faq">FAQ</h2>
+    <h3>Can I run a Helm chart without a Kubernetes cluster?</h3>
+    <p>Yes. dekube renders your Helm chart or helmfile with helm/helmfile template and converts the resulting Kubernetes manifests into a Docker Compose file. No cluster, no kubelet, no control plane — just docker compose up.</p>
+    <h3>Do I have to maintain a separate Compose file by hand?</h3>
+    <p>No. The Helm chart stays the single source of truth. compose.yml is a generated artifact you regenerate whenever the chart changes, so there is no second stack to keep in sync.</p>
+    <h3>Is dekube good for self-hosted and homelab setups?</h3>
+    <p>That is the primary use case. If an app ships only as a Helm chart but your NAS, Synology, Unraid, or VPS only speaks Docker Compose, dekube converts the chart so you can deploy it the same way you deploy everything else.</p>
+    <h3>Which dekube distribution should I use?</h3>
+    <p>Use kubernetes2simple (k2s) if you just want it to work — one curl command. Use helmfile2compose if you want to choose extensions, exclude services, or run the conversion in CI.</p>
+  </section>
 </main>
 
 <footer>
