@@ -16,17 +16,12 @@ main {
   gap: 2.5rem;
 }
 
-/* --- logo placeholder --- */
+/* --- logo --- */
 .logo {
   width: clamp(120px, 20vw, 180px);
   height: clamp(120px, 20vw, 180px);
+  object-fit: contain;
 }
-.logo .spoke { stroke: var(--fg); stroke-width: 3; stroke-linecap: round; fill: none; }
-.logo .spoke--corrupt { stroke: var(--purple); stroke-width: 2.8; stroke-linecap: round; fill: none; }
-.logo .hub { fill: none; stroke: var(--fg); stroke-width: 2.5; }
-.logo .hub-inner { fill: var(--bg); stroke: var(--fg-muted); stroke-width: 1.5; }
-.logo .rim { fill: none; stroke: rgba(228, 226, 236, 0.12); stroke-width: 2; }
-.logo .sucker { fill: var(--purple); opacity: 0.7; }
 
 /* --- title --- */
 .title { text-align: center; }
