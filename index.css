@@ -3,7 +3,7 @@ body {
   flex-direction: column;
 }
 
-/* --- center --- */
+/* --- layout --- */
 main {
   position: relative;
   z-index: 1;
@@ -11,9 +11,17 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* hero fills the first screen; logo sits in its vertical middle */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  padding: 2rem;
   gap: 2.5rem;
+  padding: 2rem;
 }
 
 /* --- logo --- */
@@ -114,7 +122,8 @@ header a    { animation: fadeUp 0.6s ease 0.4s both; }
 /* --- substance (crawlable content, on-brand dim) --- */
 .substance {
   max-width: 640px;
-  margin: 1rem auto 0;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
   text-align: left;
   color: var(--fg-muted);
   font-size: 0.9rem;

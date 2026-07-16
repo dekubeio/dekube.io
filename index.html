@@ -41,18 +41,18 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Can I run a Helm chart without a Kubernetes cluster?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. dekube renders your Helm chart or helmfile with helm/helmfile template and converts the resulting Kubernetes manifests into a Docker Compose file. No cluster, no kubelet, no control plane — just docker compose up." }
-    },
-    {
-      "@type": "Question",
       "name": "Do I have to maintain a separate Compose file by hand?",
       "acceptedAnswer": { "@type": "Answer", "text": "No. The Helm chart stays the single source of truth. compose.yml is a generated artifact you regenerate whenever the chart changes, so there is no second stack to keep in sync." }
     },
     {
       "@type": "Question",
+      "name": "Can I run a Helm chart without a Kubernetes cluster?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. dekube renders your Helm chart or helmfile with helm/helmfile template and converts the resulting Kubernetes manifests into a Docker Compose file. No cluster, no kubelet, no control plane — just docker compose up." }
+    },
+    {
+      "@type": "Question",
       "name": "Is dekube good for self-hosted and homelab setups?",
-      "acceptedAnswer": { "@type": "Answer", "text": "That is the primary use case. If an app ships only as a Helm chart but your NAS, Synology, Unraid, or VPS only speaks Docker Compose, dekube converts the chart so you can deploy it the same way you deploy everything else." }
+      "acceptedAnswer": { "@type": "Answer", "text": "It's a common one. If an app ships only as a Helm chart but your NAS, Synology, Unraid, or VPS only speaks Docker Compose, dekube converts the chart so you can deploy it the same way you deploy everything else." }
     },
     {
       "@type": "Question",
@@ -83,22 +83,23 @@
 </header>
 
 <main>
-  <img class="logo" src="logo_mark.png" width="200" height="200"
-       alt="dekube logo — a corrupted ship's wheel with tentacles woven through the spokes">
+  <div class="hero">
+    <img class="logo" src="logo_mark.png" width="200" height="200"
+         alt="dekube logo — a corrupted ship's wheel with tentacles woven through the spokes">
 
+    <div class="title">
+      <h1><span class="de">de</span>kube</h1>
+      <p>de-Kubernetise. One source of truth, no redemption.</p>
+      <p class="desc">
+        Your Kubernetes manifests already describe everything.
+        dekube generates <code>compose.yml</code> from them —
+        same charts, same values, no second stack to maintain.
+      </p>
 
-  <div class="title">
-    <h1><span class="de">de</span>kube</h1>
-    <p>de-Kubernetise. One source of truth, no redemption.</p>
-    <p class="desc">
-      Your Kubernetes manifests already describe everything.
-      dekube generates <code>compose.yml</code> from them —
-      same charts, same values, no second stack to maintain.
-    </p>
-
-    <a class="cta" href="https://k2s.dekube.io">Just run it &rarr;</a>
-    <a class="cta cta--secondary" href="https://helmfile2compose.dekube.io">I want control &rarr;</a>
-    <a class="cta cta--secondary" href="https://docs.dekube.io" target="_blank">Engine docs &rarr;</a>
+      <a class="cta" href="https://k2s.dekube.io">Just run it &rarr;</a>
+      <a class="cta cta--secondary" href="https://helmfile2compose.dekube.io">I want control &rarr;</a>
+      <a class="cta cta--secondary" href="https://docs.dekube.io" target="_blank">Engine docs &rarr;</a>
+    </div>
   </div>
 
   <section class="substance">
@@ -114,10 +115,12 @@
 
     <h2 id="who">Who it's for</h2>
     <p>
-      People who ship or run software that only exists as a Helm chart, but whose
-      target only speaks Compose: self-hosters putting an app on a NAS, Synology,
-      Unraid, or VPS; developers who need a stack running locally without a cluster;
-      and anyone who can't be root long enough to run k3s.
+      Anyone holding Kubernetes manifests that need to run under Compose. Developers
+      who want the full stack — databases, queues, reverse proxy — running locally
+      without standing up a cluster; CI pipelines that exercise an app with no control
+      plane in the loop; teams that keep the chart as the single source of truth but
+      ship to a Compose target. And self-hosters putting an app that only exists as a
+      Helm chart onto a NAS, Synology, Unraid, or VPS that only speaks Compose.
     </p>
 
     <h2 id="how">How it works</h2>
@@ -134,12 +137,12 @@
     </p>
 
     <h2 id="faq">FAQ</h2>
-    <h3>Can I run a Helm chart without a Kubernetes cluster?</h3>
-    <p>Yes. dekube renders your Helm chart or helmfile with helm/helmfile template and converts the resulting Kubernetes manifests into a Docker Compose file. No cluster, no kubelet, no control plane — just docker compose up.</p>
     <h3>Do I have to maintain a separate Compose file by hand?</h3>
     <p>No. The Helm chart stays the single source of truth. compose.yml is a generated artifact you regenerate whenever the chart changes, so there is no second stack to keep in sync.</p>
+    <h3>Can I run a Helm chart without a Kubernetes cluster?</h3>
+    <p>Yes. dekube renders your Helm chart or helmfile with helm/helmfile template and converts the resulting Kubernetes manifests into a Docker Compose file. No cluster, no kubelet, no control plane — just docker compose up.</p>
     <h3>Is dekube good for self-hosted and homelab setups?</h3>
-    <p>That is the primary use case. If an app ships only as a Helm chart but your NAS, Synology, Unraid, or VPS only speaks Docker Compose, dekube converts the chart so you can deploy it the same way you deploy everything else.</p>
+    <p>It's a common one. If an app ships only as a Helm chart but your NAS, Synology, Unraid, or VPS only speaks Docker Compose, dekube converts the chart so you can deploy it the same way you deploy everything else.</p>
     <h3>Which dekube distribution should I use?</h3>
     <p>Use kubernetes2simple (k2s) if you just want it to work — one curl command. Use helmfile2compose if you want to choose extensions, exclude services, or run the conversion in CI.</p>
   </section>
